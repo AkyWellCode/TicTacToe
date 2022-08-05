@@ -1,0 +1,60 @@
+.center {
+  text-align:center;
+}
+
+.buttonDistance {
+  margin-top: 10px;
+}
+
+.float-container { /* Enter name TEXT + BUTTON */
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+}
+
+input[type=playerName] {
+  width: 170px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('https://img.icons8.com/sf-regular/30/000000/add.png');
+  background-position: 7px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
+
+#play-area { /* Tic Tac Toe Blocks */
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+
+}
+.square {
+    width: 7.5em;
+    height: 7.5em;
+    float: left;
+    border: black solid 1px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 20px
+}
+.square:hover {
+    background-color: green;
+    color: white;
+}
+
+.restartButton {
+  margin-top: 500px;
+}
