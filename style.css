@@ -31,6 +31,10 @@ input[type=playerName] {
   transition: width 0.4s ease-in-out;
 }
 
+.nameSize {
+  font-size: 50px;
+}
+
 #play-area { /* Tic Tac Toe Blocks */
     overflow: hidden;
     position: absolute;
