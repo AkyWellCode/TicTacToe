@@ -41,7 +41,7 @@ input[type=playerName] {
     text-align: center;
     top: 62%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%);
     padding: 10px;
 
 }
@@ -61,4 +61,13 @@ input[type=playerName] {
 
 .restartButton {
   margin-top: 500px;
+}
+
+.staticButton {
+    position:absolute;
+}
+
+.winnerText {
+  text-align:center;
+  margin-top: 450px;
 }
