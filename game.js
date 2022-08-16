@@ -8,6 +8,39 @@ function setPlayersNameAndDisplay() {
   document.getElementById("versus").append(text);
 }
 
+
+function gameUpdate(clicked_id) {
+  if (playerTurn === 1) {
+    document.getElementById(clicked_id).innerHTML = "X";
+    document.getElementById(clicked_id).value = 1;
+    ++playerTurn;
+    ++buttonPressed;
+  } else if (playerTurn === 2) {
+    document.getElementById(clicked_id).innerHTML = "O";
+    document.getElementById(clicked_id).value = 2;
+    --playerTurn;
+    ++buttonPressed;
+  }
+  checkTheWinner();
+}
+
+function checkTheWinner() {
+  if(checkHorizontal() === true || checkVertical() === true || checkDiagonal() === true) {
+    document.getElementById("winner").innerHTML = whoIsTheWinner() + " wins!!!";
+    addRestartButton();
+  } else if (buttonPressed === 9) {
+    document.getElementById("winner").innerHTML = "It's a draw!";
+    addRestartButton();
+  }
+}
+
+function whoIsTheWinner() {
+  if (playerTurn === 1) {
+    return document.getElementById("player2Name").value;
+  }
+  return document.getElementById("player1Name").value;
+}
+
 function checkHorizontal() {
   if ((square1.value === square2.value && square2.value === square3.value && square3.value === square1.value) ||
       (square4.value === square5.value && square5.value === square6.value && square6.value === square4.value) ||
@@ -34,23 +67,6 @@ function checkDiagonal() {
       return false;
 }
 
-function whoIsTheWinner() {
-  if (playerTurn === 1) {
-    return document.getElementById("player2Name").value;
-  }
-  return document.getElementById("player1Name").value;
-}
-
-function checkTheWinner() {
-  if(checkHorizontal() === true || checkVertical() === true || checkDiagonal() === true) {
-    document.getElementById("winner").innerHTML = whoIsTheWinner() + " wins!!!";
-    addRestartButton();
-  } else if (buttonPressed === 9) {
-    document.getElementById("winner").innerHTML = "It's a draw!";
-    addRestartButton();
-  }
-}
-
 function addRestartButton() {
   let button = document.createElement("Button");
   button.className = "btn btn-outline-warning";
@@ -59,19 +75,4 @@ function addRestartButton() {
     window.location.reload();
   }
   document.getElementById("addRestartButton").append(button);
-}
-
-function gameUpdate(clicked_id) {
-  if (playerTurn === 1) {
-    document.getElementById(clicked_id).innerHTML = "X";
-    document.getElementById(clicked_id).value = 1;
-    ++playerTurn;
-    ++buttonPressed;
-  } else if (playerTurn === 2) {
-    document.getElementById(clicked_id).innerHTML = "O";
-    document.getElementById(clicked_id).value = 2;
-    --playerTurn;
-    ++buttonPressed;
-  }
-  checkTheWinner();
 }
